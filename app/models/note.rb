@@ -2,8 +2,7 @@ class Note < ActiveRecord::Base
 
   belongs_to :master
   has_one :currency, :through => :master
-  has_one :country, :through => :currency
-  
+
   belongs_to :grade
 
   validates_presence_of :master
@@ -25,6 +24,10 @@ class Note < ActiveRecord::Base
   
   def to_param
     "#{self.id}-#{self.master.country.name}-#{self.master.code}".gsub(/[ \?]/,'-')
+  end
+
+  def sort_key
+    "#{master.country.name} #{master.code}"
   end
 
 end

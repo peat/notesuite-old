@@ -37,9 +37,9 @@ module ApplicationHelper
   
   def name_for_master( m )
     if m.code.blank?
-      "#{m.country.name} #{n(m.denomination)} #{m.currency.unit}"
+      "#{m.region.name} #{n(m.denomination)} #{m.currency.unit}"
     else
-      "#{m.country.name} #{m.code}"
+      "#{m.region.name} #{m.code}"
     end
   end
 

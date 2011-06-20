@@ -1,6 +1,6 @@
 <h1>
   <%=h @currency.unit %>
-  <%=h "(#{@currency.country.name})" %>
+  <%=h "(#{@currency.region.name})" %>
   <%= link_to icon('pencil'), edit_currency_path(@currency) %>
 </h1>
 <h2><%=h @currency.authority.try(:name) %></h2>

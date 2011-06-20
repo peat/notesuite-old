@@ -2,7 +2,7 @@ class MastersController < ApplicationController
   # GET /masters
   # GET /masters.xml
   def index
-    @masters = Master.find(:all, :include => [:country, :currency, :authority]).paginate :page => params[:page]
+    @masters = Master.find(:all, :include => [:region, :currency, :authority]).paginate :page => params[:page]
     @master = Master.new
 
     respond_to do |format|

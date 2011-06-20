@@ -10,30 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620051611) do
+ActiveRecord::Schema.define(:version => 20110620062128) do
 
   create_table "authorities", :force => true do |t|
     t.string   "name"
-    t.integer  "country_id"
+    t.integer  "region_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "authorities", ["country_id"], :name => "index_authorities_on_country_id"
   add_index "authorities", ["name"], :name => "index_authorities_on_name"
-
-  create_table "countries", :force => true do |t|
-    t.string   "name",        :null => false
-    t.string   "native_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "countries", ["name"], :name => "index_countries_on_name"
+  add_index "authorities", ["region_id"], :name => "index_authorities_on_country_id"
 
   create_table "currencies", :force => true do |t|
     t.string   "unit",         :null => false
-    t.integer  "country_id",   :null => false
+    t.integer  "region_id",    :null => false
     t.string   "symbol"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20110620051611) do
   end
 
   add_index "currencies", ["authority_id"], :name => "index_currencies_on_authority_id"
-  add_index "currencies", ["country_id"], :name => "index_currencies_on_country_id"
+  add_index "currencies", ["region_id"], :name => "index_currencies_on_country_id"
 
   create_table "grades", :force => true do |t|
     t.string   "name",        :null => false
@@ -88,9 +79,19 @@ ActiveRecord::Schema.define(:version => 20110620051611) do
 
   create_table "printers", :force => true do |t|
     t.string   "name",       :null => false
-    t.integer  "country_id", :null => false
+    t.integer  "region_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "regions", :force => true do |t|
+    t.string   "name",        :null => false
+    t.string   "native_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_id"
+  end
+
+  add_index "regions", ["name"], :name => "index_regions_on_name"
 
 end

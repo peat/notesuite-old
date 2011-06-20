@@ -1,16 +1,16 @@
 class Currency < ActiveRecord::Base
-  belongs_to :country
+  belongs_to :region
   has_many :masters, :dependent => :destroy
   
   belongs_to :authority
   
-  validates_presence_of :unit, :country
-  validates_uniqueness_of :unit, :scope => [:country_id, :authority_id]
+  validates_presence_of :unit, :region
+  validates_uniqueness_of :unit, :scope => [:region_id, :authority_id]
 
-  default_scope includes(:country, :authority).order('countries.name, currencies.name')
+  default_scope includes(:region, :authority).order('regions.name, currencies.name')
 
   def name
-    self.country.name + ' ' + self.unit
+    self.region.name + ' ' + self.unit
   end
   
   def name_for_select( length = 37 )

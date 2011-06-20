@@ -1,6 +1,6 @@
 Master Catalog List for <%= Time.now.strftime("%c")%>
 
-<% Country.all.each do |c| -%>
+<% Region.all.each do |c| -%>
 <%= "\n#{c.name.upcase}\n" %>
 <% c.masters.each do |m| -%>
 <%= "  %-7s %-6s %-25s %-20s" % [m.code, m.issued_on.try(:year), (n( m.denomination ) + ' ' + m.currency.unit), m.description] %>

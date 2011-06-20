@@ -1,5 +1,5 @@
 <h1><%=h @printer.name %> <%= link_to icon('pencil'), edit_printer_path(@printer) %></h1>
-<h2><%=h @printer.country.name %></h2>
+<h2><%=h @printer.region.name %></h2>
 
 <h2>Masters <%= link_to_function icon('add'), '$("#masters_form").toggle(100)'%></h2>
 <%= render :partial => 'masters/browse', :locals => { :masters => @printer.masters } %>

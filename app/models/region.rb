@@ -1,4 +1,4 @@
-class Country < ActiveRecord::Base
+class Region < ActiveRecord::Base
   
   has_many :currencies, :dependent => :destroy
   has_many :masters, :through => :currencies
@@ -8,7 +8,7 @@ class Country < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  default_scope order('countries.name')
+  default_scope order('regions.name')
 
   def self.for_select
     all.collect { |u| [ u.name, u.id ] }

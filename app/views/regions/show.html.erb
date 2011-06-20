@@ -1,0 +1,15 @@
+<h1><%=h @region.name %> <%= link_to icon('pencil'), edit_region_path(@region) %></h1>
+<h2><%=h @region.native_name %></h2>
+
+
+<h2>Currencies</h2>
+
+<%= render :partial => 'currencies/browse', :locals => { :currencies => @region.currencies } %>
+
+<h2>Authorities</h2>
+
+<%= render :partial => 'authorities/browse', :locals => { :authorities => @region.authorities } %>
+
+<h2>Master Banknotes <%= link_to_function icon('add'), '$("#masters_form").toggle(100)'%></h2>
+
+<%= render :partial => 'masters/browse', :locals => { :masters => @region.masters } %>

@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>&nbsp;</th>
-      <th>Country</th>
+      <th>Region</th>
       <th>Name</th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
     <td>
       <%= link_to icon('pencil'), edit_printer_path( printer ) %>
     </td>
-    <td><%=h printer.country.name %></td>
+    <td><%=h printer.region.name %></td>
     <td><%= link_to printer.name, printer %></td>
   </tr>
 <% end %>

@@ -12,7 +12,7 @@
 
   <ul>
     <%= f.text_field :name, :required => true %>
-    <%= f.select :country_id, Country.for_select, :required => true %>
+    <%= f.select :region_id, Region.for_select, :required => true %>
     <%= f.submit create_or_update(@printer) %>
   </ul>
 </fieldset>

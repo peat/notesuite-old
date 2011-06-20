@@ -6,7 +6,7 @@ NoteSuite::Application.routes.draw do
   resources :notes, :collection => { :search => :get }
   resources :masters, :collection => { :search => :get }
   resources :currencies
-  resources :countries
+  resources :regions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

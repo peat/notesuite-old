@@ -1,6 +1,6 @@
 <div class="span-12 last">
 <h1>
-  <%= link_to @note.master.country.name, @note.master.country %> <%= link_to @note.master.code, @note.master %> 
+  <%= link_to @note.master.region.name, @note.master.region %> <%= link_to @note.master.code, @note.master %>
   <%= link_to icon('pencil'), edit_note_path(@note) %>
   <%= link_to icon('delete'), @note, :confirm => 'Are you sure?', :method => :delete %>
 </h1>

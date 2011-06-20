@@ -46,7 +46,7 @@ module ApplicationHelper
   def inv_count( m )
     count = m.notes.count
     if count == 2
-      "<span class=\"complete\">#{count}</span>"
+      "<span class=\"complete\">#{count}</span>".html_safe
     else
       count
     end

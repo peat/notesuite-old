@@ -11,7 +11,7 @@
     <% end %>
 
     <ul>
-      <%= f.text_field :name, :require => true %>
+      <%= f.text_field :name, :required => true %>
       <%= f.text_field :native_name %>
       <%= f.submit create_or_update(@country) %>
     </ul>

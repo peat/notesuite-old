@@ -8,10 +8,6 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :master
   validates_uniqueness_of :serial, :scope => :master_id, :allow_blank => true
-  
-  attr_accessor :obverse_file, :reverse_file
-  
-  after_save :update_images
 
   named_scope :search, lambda { |value|
     fields = ['notes.serial', 'notes.description', 'grades.name', 'masters.code', 'cast(masters.denomination as varchar)', 'masters.description', 'currencies.unit', 'countries.name', 'authorities.name']

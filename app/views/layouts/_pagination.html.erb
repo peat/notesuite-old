@@ -1,0 +1,6 @@
+<% if collection.respond_to? :total_pages %>
+<div class="pagination">
+  <div class="info"><%= page_entries_info collection %></div>
+  <%= will_paginate collection, :class => "pages" %>
+</div>
+<% end %>

@@ -1,0 +1,19 @@
+<% form_for(@country) do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@country) %> Country</legend>
+
+    <% if @country.errors.any? %>
+    <ul>
+    <% @country.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
+    <ul>
+      <%= f.text_field :name, :require => true %>
+      <%= f.text_field :native_name %>
+      <%= f.submit create_or_update(@country) %>
+    </ul>
+  </fieldset>
+<% end %>

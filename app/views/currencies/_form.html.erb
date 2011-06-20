@@ -1,0 +1,22 @@
+<% form_for(@currency) do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@currency) %> Currency</legend>
+
+    <% if @currency.errors.any? %>
+    <ul>
+    <% @currency.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
+    <ul>
+      <%= f.text_field :unit, :label => 'Monetary Unit', :required => true %>
+      <%= f.select :country_id, Country.for_select, :required => true %>
+      <%= f.select :authority_id, Authority.for_select, :include_blank => true %>
+      
+      <%= f.text_field :symbol %>
+      <%= f.submit create_or_update( @currency ) %>
+    </ul>
+  </fieldset>
+<% end %>

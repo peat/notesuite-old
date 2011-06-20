@@ -1,0 +1,25 @@
+<% form_for(@note, :html => { :multipart => true } ) do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@note) %> Note</legend>
+
+    <% if @note.errors.any? %>
+    <ul>
+    <% @note.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
+    <ul>
+      <%= f.select :master_id, Master.for_select, :required => true %>
+      <%= f.select :grade_id, Grade.for_select, :include_blank => true, :selected => 729449236 %>
+      <%= f.text_field :serial %>
+      <%= f.text_area :description %>
+      <%= f.check_box :replacement %>
+      <%= f.file_field :obverse %>
+      <%= f.file_field :reverse %>
+      <%= f.date_select :printed_on, :include_blank => true %>
+      <%= f.submit create_or_update( @note ) %>
+    </ul>
+  </fieldset>
+<% end %>

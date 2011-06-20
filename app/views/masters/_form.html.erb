@@ -1,0 +1,28 @@
+<% form_for(@master) do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@master) %> Master</legend>
+
+    <% if @master.errors.any? %>
+    <ul>
+    <% @master.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
+    <ul>
+      <%= f.select :currency_id, Currency.for_select, :required => true %>
+      <%= f.text_field :denomination, :required => true, :collapse => true %>
+      <%= f.text_field :code, :label => 'Pick Code' %>
+      <%= f.date_select :issued_on, :include_blank => true, :start_year => 1900, :end_year => Date.today.year %>
+      <%= f.text_area :description %>
+      <%= f.select :printer_id, Printer.for_select, :include_blank => true %>
+      <%= f.select :overprint_currency_id, Currency.for_select, :include_blank => true %>
+      <%= f.text_field :overprint_denomination, :collapse => true %>
+      <%= f.date_select :printed_on, :include_blank => true %>
+      <%= f.date_select :withdrawn_on, :include_blank => true %>
+      <%= f.date_select :lapsed_on, :include_blank => true %>
+      <%= f.submit create_or_update(@master) %>
+    </ul>
+  </fieldset>
+<% end %>

@@ -1,0 +1,41 @@
+<div id="notes_form" class="hidden"><%= render( :partial => 'notes/form' ) %></div>
+<%= render :partial => 'layouts/pagination', :locals => { :collection => notes } %>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 1em;">&nbsp;</th>
+      <th>Country &amp; Code</th>
+      <th>Banknote</th>
+      <th>Issued</th>
+      <th>Condition</th>
+      <th style="width: 8em;">Serial</th>
+      <th style="width: 1em;">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% notes.each do |note| -%>
+    <tr>
+      <td>
+        <%= link_to icon('pencil'), edit_note_path(note) %>
+      </td>
+      <td><%= link_to_master note.master %></td>
+      <td>
+        <%= link_to "#{n note.master.denomination} #{note.master.currency.unit}", note -%>
+        <% if note.master.overprint -%>
+          (<abbr title="<%= "#{note.master.overprint_denomination} #{note.master.overprint_currency.unit}" %>">OP</abbr>)
+        <% end %>
+      </td>
+      <td><%=year note.master.try(:issued_on) %></td>
+      <td>
+        <% if note.description.blank? -%>
+          <%=h note.grade.try(:name) %>
+        <% else -%>
+          <abbr title="<%=h note.description %>"><%=h note.grade.try(:name) %></abbr>
+        <% end -%>
+      </td>
+      <td><%=h note.serial %></td>
+      <td><%= link_to( icon('camera'), note ) if ( note.obverse or note.reverse ) %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>

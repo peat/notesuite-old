@@ -1,0 +1,21 @@
+<%= render :partial => 'layouts/pagination', :locals => { :collection => countries } %>
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name (Native)</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% countries.each do |country| -%>
+    <tr>
+      <td>
+        <%= link_to icon('pencil'), edit_country_path(country) %>
+      </td>
+      <td><%= link_to country.name, country %> <%=h "(#{country.native_name})" unless country.native_name.blank? %></td>
+      <td><%= country.masters.count %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>

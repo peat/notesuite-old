@@ -1,0 +1,37 @@
+<div id="masters_form" class="hidden"><%= render( :partial => 'masters/form' ) %></div>
+<%= render :partial => 'layouts/pagination', :locals => { :collection => masters } %>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 1em;">&nbsp;</th>
+      <th style="width: 9em;">Country &amp; Code</th>
+      <th>Issued</th>
+      <th style="width: 10em;">Denomination</th>
+      <th>Description</th>
+      <th>Qty.</th>
+      <th style="width: 1em;">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% masters.each do |master| -%>
+    <tr>
+      <td>
+        <%= link_to icon('pencil'), edit_master_path(master) %>
+      </td>
+      <td>
+        <%= link_to_master master %>
+      </td>
+      <td><%=year master.issued_on %></td>
+      <td>
+        <%=n master.denomination %> <%= link_to master.currency.unit, master.currency %>
+        <% if master.overprint -%>
+          (<abbr title="<%= "#{master.overprint_denomination} #{master.overprint_currency.unit}" %>">OP</abbr>)
+        <% end %>
+      </td>
+      <td><%=h master.description %></td>
+      <td><%= inv_count master %></td>
+      <td><%= link_to( icon('camera'), master ) if ( master.obverse or master.reverse ) %></td>
+    </tr>
+    <% end -%>
+  </tbody>
+</table>

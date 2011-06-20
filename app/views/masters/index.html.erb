@@ -1,0 +1,9 @@
+<h1>Master Banknotes</h1>
+
+<form action="/masters/search" method="get">
+  <input name="q" value="<%=h params[:q] %>">
+  <input type="submit" value="Search &raquo;">
+</form>
+
+<%= render :partial => 'browse', :locals => { :masters => @masters } %>
+

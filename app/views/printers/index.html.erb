@@ -1,0 +1,3 @@
+<h1>Listing printers <%= link_to_function icon('add'), '$("#printers_form").toggle(100)'%></h1>
+
+<%= render :partial => 'browse', :locals => { :printers => @printers } %>

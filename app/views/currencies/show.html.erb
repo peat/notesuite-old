@@ -1,0 +1,10 @@
+<h1>
+  <%=h @currency.unit %>
+  <%=h "(#{@currency.country.name})" %>
+  <%= link_to icon('pencil'), edit_currency_path(@currency) %>
+</h1>
+<h2><%=h @currency.authority.try(:name) %></h2>
+
+<h2>Master Banknotes <%= link_to_function icon('add'), '$("#masters_form").toggle(100)'%></h2>
+
+<%= render :partial => 'masters/browse', :locals => { :masters => @currency.masters } %>

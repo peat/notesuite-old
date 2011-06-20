@@ -1,0 +1,22 @@
+<h1>Grading Scale</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th style="width: 3em;">&nbsp;</th>
+    <th style="width: 12em;">Name</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @grades.each do |grade| -%>
+    <tr>
+      <td>
+        <%= link_to icon('pencil'), edit_grade_path(grade) %>
+      </td>
+      <td><%= link_to grade.full_name, grade %> (<%=h grade.name %>)</td>
+      <td><%=h grade.description %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>

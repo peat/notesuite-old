@@ -1,0 +1,18 @@
+<% form_for(@grade) do |f| %>
+
+    <% if @grade.errors.any? %>
+    <ul>
+    <% @grade.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+
+
+  <ul>
+  <%= f.text_field :name %>
+  <%= f.text_field :full_name %>
+  <%= f.text_area :description %>
+  <%= f.submit create_or_update(@grade) %>
+  </ul>
+<% end %>

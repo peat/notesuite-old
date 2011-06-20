@@ -1,0 +1,21 @@
+<div id="printers_form" class="hidden"><%= render( :partial => 'printers/form' ) %></div>
+<%= render :partial => 'layouts/pagination', :locals => { :collection => printers } %>
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Country</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+<% printers.each do |printer| %>
+  <tr>
+    <td>
+      <%= link_to icon('pencil'), edit_printer_path( printer ) %>
+    </td>
+    <td><%=h printer.country.name %></td>
+    <td><%= link_to printer.name, printer %></td>
+  </tr>
+<% end %>
+</table>

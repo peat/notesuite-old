@@ -1,0 +1,20 @@
+<%= render :partial => 'layouts/pagination', :locals => { :collection => authorities } %>
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Country</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+<% authorities.each do |authority| %>
+  <tr>
+    <td>
+      <%= link_to icon('pencil'), edit_authority_path( authority ) %>
+    </td>
+    <td><%=h authority.country.name %></td>
+    <td><%= link_to authority.name, authority %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,36 @@
+#header { text-align: right; margin-bottom: 1em; padding: 1em 0; border-bottom: 1px solid #aaa;}
+#header ul { list-style: none; padding: 0; margin: 0; }
+#header li { display: inline; padding: 0 1em; }
+#header a { text-decoration: none; }
+
+table { width: auto; border: 1px solid #aaa; background-color: #fff;}
+table>tbody>tr:hover { background-color: #eee; }
+table td, table th { padding: 0.2em 1em;}
+table a { text-decoration: none; }
+table a:hover { text-decoration: underline; }
+
+abbr { font-weight: bold; text-decoration: underline; border: none;}
+
+form>fieldset { background-color: #fff; }
+form>fieldset>legend { padding: 0 0.5em; background-color: #fff; border-top: 1px solid #ccc;}
+form>fieldset>ul { list-style: none; padding: 0; margin: 0; }
+form>fieldset>ul>li { padding: 0.5em 0; margin: 0; clear: both; }
+label { padding: 0 1em; margin: 0; display: block; font-weight: normal; text-align: right; }
+label.required { font-weight: bold; color: #800; }
+label { float: left; padding-top: 0.4em; width: 9em; }
+textarea { width: 16em; height: 10em;}
+
+.center { text-align: center; }
+
+body { background-color: #abc; }
+.container { border-right: 1px solid #aaa; border-left: 1px solid #aaa; padding: 0em 1em 0em 1em; background-color: #eee;}
+
+.pagination { padding: 1em;}
+
+#note-faces td { padding: 0em; margin: 0em;} 
+#note-faces th { text-align: center;}
+#note-faces img { padding: 0.5em; margin: 0em; border: collapse;}
+#note-faces .no-image { padding: 1em; text-align: center;}
+#note-faces tr:hover { background-color: #fff; }
+
+.complete { font-weight: bold; color: #0a0; }

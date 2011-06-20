@@ -1,0 +1,21 @@
+<%= render :partial => 'layouts/pagination', :locals => { :collection => currencies } %>
+<table>
+  <thead>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Currency</th>
+    <th>Authority</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% currencies.each do |currency| -%>
+    <tr>
+      <td>
+        <%= link_to icon('pencil'), edit_currency_path(currency) %>
+      </td>
+      <td><%= link_to currency.name, currency %></td>
+      <td><%= link_to( currency.authority.name, currency.authority ) unless currency.authority.blank? %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>

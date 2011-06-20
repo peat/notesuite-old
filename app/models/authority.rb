@@ -6,8 +6,8 @@ class Authority < ActiveRecord::Base
   
   validates_presence_of :name, :country
   validates_uniqueness_of :name, :scope => :country_id
-  
-  default_scope :joins => [:country], :order => 'countries.name, authorities.name'
+
+  default_scope includes(:country).order('countries.name, authorities.name')
 
   def self.for_select
     self.find(:all, :include => [:country] ).collect { |a| [ a.name_for_select, a.id ] }

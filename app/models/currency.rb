@@ -6,9 +6,9 @@ class Currency < ActiveRecord::Base
   
   validates_presence_of :unit, :country
   validates_uniqueness_of :unit, :scope => [:country_id, :authority_id]
-  
-  default_scope :include => [:country, :authority], :joins => :country, :order => 'countries.name, currencies.unit'
-  
+
+  default_scope includes(:country).order('countries.name, currencies.name')
+
   def name
     self.country.name + ' ' + self.unit
   end
@@ -22,7 +22,7 @@ class Currency < ActiveRecord::Base
   end
   
   def self.for_select
-    self.find(:all, :include => [:authority]).collect { |u| [ u.name_for_select, u.id ] }.sort  
+    includes(:authority).collect { |u| [ u.name_for_select, u.id ] }.sort
   end
   
   def to_param

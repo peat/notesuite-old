@@ -2,6 +2,7 @@ class Note < ActiveRecord::Base
 
   belongs_to :master
   has_one :currency, :through => :master
+  has_one :country, :through => :currency
   
   belongs_to :grade
   belongs_to :obverse, :class_name => 'Artwork'
@@ -14,8 +15,6 @@ class Note < ActiveRecord::Base
   
   after_save :update_images
 
-  default_scope :joins => 'INNER JOIN masters ON masters.id=notes.master_id INNER JOIN currencies ON currencies.id=masters.currency_id INNER JOIN countries ON countries.id=currencies.country_id', :order => 'countries.name, masters.issued_on, currencies.unit, masters.denomination'
-  
   named_scope :search, lambda { |value|
     fields = ['notes.serial', 'notes.description', 'grades.name', 'masters.code', 'cast(masters.denomination as varchar)', 'masters.description', 'currencies.unit', 'countries.name', 'authorities.name']
     condition_string = fields.collect { |f| "lower(#{f}) like lower(?)"}.join(" OR ")

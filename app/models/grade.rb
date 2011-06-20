@@ -3,8 +3,8 @@ class Grade < ActiveRecord::Base
   
   validates_presence_of :name, :full_name
 
-  default_scope :order => 'rank'
-    
+  default_scope order('grades.rank')
+
   def self.for_select
     self.find(:all).collect { |u| [ u.name, u.id ] }
   end

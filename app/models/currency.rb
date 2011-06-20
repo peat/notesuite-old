@@ -26,7 +26,7 @@ class Currency < ActiveRecord::Base
   end
   
   def to_param
-    "#{self.id}-#{self.name}".gsub(/ /,'-')
+    "#{self.id}-#{self.name}".gsub(/ /,'-').gsub(/\//, '')
   end
   
 end

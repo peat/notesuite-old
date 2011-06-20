@@ -5,9 +5,7 @@ class Note < ActiveRecord::Base
   has_one :country, :through => :currency
   
   belongs_to :grade
-  belongs_to :obverse, :class_name => 'Artwork'
-  belongs_to :reverse, :class_name => 'Artwork'
-  
+
   validates_presence_of :master
   validates_uniqueness_of :serial, :scope => :master_id, :allow_blank => true
   
@@ -29,35 +27,8 @@ class Note < ActiveRecord::Base
     }
   }
   
-  def obverse=( file )
-    self.obverse.destroy if self.obverse
-    self.obverse_file = file
-    self.obverse_id = Artwork.create( :source_file => file, :basename => 'tmp-obverse' ).id
-  end
-
-  # see obverse= for notes
-  def reverse=( file )
-    self.reverse.destroy if self.reverse
-    self.reverse_file = file
-    self.reverse_id = Artwork.create( :source_file => file, :basename => 'tmp-reverse' ).id
-  end
-
   def to_param
     "#{self.id}-#{self.master.country.name}-#{self.master.code}".gsub(/[ \?]/,'-')
-  end
-  
-  protected
-  
-  def update_images
-    if self.obverse_file
-      self.obverse.update_attributes( :basename => "#{self.to_param}-obverse", :source_file => self.obverse_file )
-      self.obverse.transform_and_archive
-    end
-    
-    if self.reverse_file
-      self.reverse.update_attributes( :basename => "#{self.to_param}-reverse", :source_file => self.reverse_file )
-      self.reverse.transform_and_archive
-    end
   end
 
 end

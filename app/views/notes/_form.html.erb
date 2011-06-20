@@ -16,8 +16,6 @@
       <%= f.text_field :serial %>
       <%= f.text_area :description %>
       <%= f.check_box :replacement %>
-      <%= f.file_field :obverse %>
-      <%= f.file_field :reverse %>
       <%= f.date_select :printed_on, :include_blank => true %>
       <%= f.submit create_or_update( @note ) %>
     </ul>

@@ -9,7 +9,6 @@
       <th style="width: 10em;">Denomination</th>
       <th>Description</th>
       <th>Qty.</th>
-      <th style="width: 1em;">&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +29,6 @@
       </td>
       <td><%=h master.description %></td>
       <td><%= inv_count master %></td>
-      <td><%= link_to( icon('camera'), master ) if ( master.obverse or master.reverse ) %></td>
     </tr>
     <% end -%>
   </tbody>

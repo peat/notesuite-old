@@ -63,14 +63,6 @@ class Master < ActiveRecord::Base
     "#{self.id}-#{self.country.name}-#{self.code}".gsub(/[ \?]/,'-')
   end
   
-  def obverse
-    notes.find( :first, :conditions => "obverse_id > 0").try(:obverse)
-  end
-  
-  def reverse
-    notes.find( :first, :conditions => "reverse_id > 0").try(:reverse)
-  end
-  
   protected
   
   def clean_decimal( value )

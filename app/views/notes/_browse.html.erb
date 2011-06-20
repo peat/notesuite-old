@@ -9,7 +9,6 @@
       <th>Issued</th>
       <th>Condition</th>
       <th style="width: 8em;">Serial</th>
-      <th style="width: 1em;">&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -34,7 +33,6 @@
         <% end -%>
       </td>
       <td><%=h note.serial %></td>
-      <td><%= link_to( icon('camera'), note ) if ( note.obverse or note.reverse ) %></td>
     </tr>
   <% end -%>
   </tbody>

@@ -35,7 +35,7 @@ class Master < ActiveRecord::Base
   }
   
   def self.for_select
-    self.find(:all, :include => [:country, :authority, :currency]).collect { |u| [ u.name_for_select, u.id ] }.sort
+    includes(:country, :authority, :currency).order('masters.name, masters.code').collect { |u| [ u.name_for_select, u.id ] }
   end
   
   def name_for_select

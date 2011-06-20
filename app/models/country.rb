@@ -11,7 +11,7 @@ class Country < ActiveRecord::Base
   default_scope order('countries.name')
 
   def self.for_select
-    self.all.collect { |u| [ u.name, u.id ] }
+    all.collect { |u| [ u.name, u.id ] }
   end
   
   def to_param

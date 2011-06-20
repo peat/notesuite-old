@@ -6,7 +6,7 @@ class Grade < ActiveRecord::Base
   default_scope order('grades.rank')
 
   def self.for_select
-    self.find(:all).collect { |u| [ u.name, u.id ] }
+    all.collect { |u| [ u.name, u.id ] }
   end
   
   def to_param

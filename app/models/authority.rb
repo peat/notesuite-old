@@ -10,7 +10,7 @@ class Authority < ActiveRecord::Base
   default_scope includes(:country).order('countries.name, authorities.name')
 
   def self.for_select
-    self.find(:all, :include => [:country] ).collect { |a| [ a.name_for_select, a.id ] }
+    all.collect { |a| [ a.name_for_select, a.id ] }
   end
   
   def name_for_select( length = 37 )

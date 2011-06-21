@@ -13,6 +13,7 @@
     <ul>
       <%= f.text_field :name, :required => true %>
       <%= f.text_field :native_name %>
+      <%= f.select :parent_id, Region.for_select, :required => true %>
       <%= f.submit create_or_update(@region) %>
     </ul>
   </fieldset>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620062128) do
+ActiveRecord::Schema.define(:version => 20110621035717) do
 
   create_table "authorities", :force => true do |t|
     t.string   "name"
@@ -90,8 +90,10 @@ ActiveRecord::Schema.define(:version => 20110620062128) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.string   "ancestry"
   end
 
-  add_index "regions", ["name"], :name => "index_regions_on_name"
+  add_index "regions", ["ancestry"], :name => "index_regions_on_ancestry"
+  add_index "regions", ["name"], :name => "index_countries_on_name"
 
 end

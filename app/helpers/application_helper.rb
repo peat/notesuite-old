@@ -42,6 +42,10 @@ module ApplicationHelper
       "#{m.region.name} #{m.code}"
     end
   end
+  
+  def pad_region_name( r )
+    ("&nbsp;".html_safe * (r.ancestry.split(':').length * 4) )
+  end
 
   def inv_count( m )
     count = m.notes.count

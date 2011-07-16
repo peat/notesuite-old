@@ -13,7 +13,7 @@
       <td>
         <%= link_to icon('pencil'), edit_region_path(region) %>
       </td>
-      <td><%= link_to region.name, region %> <%=h "(#{region.native_name})" unless region.native_name.blank? %></td>
+      <td><%= pad_region_name( region ) %><%= link_to region.name, region %> <%=h "(#{region.native_name})" unless region.native_name.blank? %></td>
       <td><%= region.masters.count %></td>
     </tr>
   <% end -%>

@@ -13,7 +13,7 @@ class Region < ActiveRecord::Base
 
   before_save :update_ancestry
 
-  default_scope order('regions.name')
+  default_scope order('regions.ancestry')
 
   def self.top
     find(94) # Earth

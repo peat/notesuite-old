@@ -3,7 +3,6 @@ Banknote Collection for <%= Time.now.strftime("%c")%>
 Notes:
 
 * Take grading with a pinch of salt. From best to worst: Uncirculated (UNC), About Uncirculated (AU), Extremely Fine (XF), Fine (F), Very Good (VG), Good (G), Poor (P).
-* This is only a partial catalog. The rest will be coming over the next few months.
 
 <% Region.all.each do |c| -%>
 <%= "\n#{c.name.upcase}\n" %>

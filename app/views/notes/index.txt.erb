@@ -4,8 +4,9 @@ Notes:
 
 * Take grading with a pinch of salt. From best to worst: Uncirculated (UNC), About Uncirculated (AU), Extremely Fine (XF), Fine (F), Very Good (VG), Good (G), Poor (P).
 
-<% Region.all.each do |c| -%>
-<%= "\n#{c.name.upcase}\n" %>
+<% Region.includes(:masters).all.each do |c| -%>
+<% next if c.masters.empty? %>
+<%= "\n#{c.ancestry.gsub('Earth:','').gsub(':', ' - ').upcase}\n" %>
 <% c.masters.each do |m| -%>
 <% m.notes.each do |n| -%>
 <%= "  %-7s %-6s %-25s %-5s %-20s" % [m.code, m.issued_on.try(:year), (n( m.denomination ) + ' ' + m.currency.unit), n.grade.try(:name), m.description] %>

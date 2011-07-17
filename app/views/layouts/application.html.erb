@@ -12,7 +12,8 @@
     <div class="container">
       <div id="header" class="span-24">
         <ul>
-          <li><%= link_to 'Data Entry Page', root_path %></li>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Data Entry', data_entry_path %></li>
           <li><%= link_to "Master Catalog (#{Master.count})", masters_path %></li>
           <li><%= link_to "Collection (#{Note.count})", notes_path %></li>
           <li><%= link_to "Currencies (#{Currency.count})", currencies_path %></li>

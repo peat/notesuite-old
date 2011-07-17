@@ -58,6 +58,8 @@ NoteSuite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "pages#index"
+  
+  match 'data_entry' => 'pages#data_entry', :as => :data_entry 
 
   # See how all your routes lay out with "rake routes"
   

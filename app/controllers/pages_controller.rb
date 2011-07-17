@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def index
+  def data_entry
     @authority = Authority.new :region => Region.find_by_id( session[:last_country] )
     @region = Region.new
     @currency = Currency.new( :region => Region.find_by_id( session[:last_country] ), :authority => Authority.find_by_id( session[:last_authority] ) )

@@ -8,7 +8,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :master
   validates_uniqueness_of :serial, :scope => :master_id, :allow_blank => true
 
-  named_scope :search, lambda { |value|
+  scope :search, lambda { |value|
     fields = ['notes.serial', 'notes.description', 'grades.name', 'masters.code', 'cast(masters.denomination as varchar)', 'masters.description', 'currencies.unit', 'regions.name', 'authorities.name']
     condition_string = fields.collect { |f| "lower(#{f}) like lower(?)"}.join(" OR ")
     condition_values = fields.collect { |f| "%#{value}%" } # stack up one value per field

@@ -19,7 +19,7 @@ class Master < ActiveRecord::Base
       'INNER JOIN "regions" ON regions.id=currencies.region_id'
     ], :order => 'regions.name, SUBSTRING(masters.code FROM \'[0-9]{1,3}\')::INT, masters.issued_on, masters.denomination'
   
-  named_scope :search, lambda { |value|
+  scope :search, lambda { |value|
     fields = ['masters.code', 'cast(masters.denomination as varchar)', 'masters.description', 'currencies.unit', 'regions.name', 'authorities.name', 'printers.name']
     condition_string = fields.collect { |f| "lower(#{f}) like lower(?)"}.join(" OR ")
     condition_values = fields.collect { |f| "%#{value}%" } # stack up one value per field

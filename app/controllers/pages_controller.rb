@@ -4,32 +4,40 @@ class PagesController < ApplicationController
     @recent_notes = Note.limit(5).order('updated_at DESC')
     
     @oddities = []
-    
-    # find masters without any notes
-    Master.includes(:notes).all.each do |m|
-      if m.notes.count == 0
-        @oddities << { :message => "Master with no Notes.", :master => m }
-      end
+        
+    # masters w/o notes
+    Master.find_by_sql("SELECT * FROM masters WHERE id NOT IN (SELECT DISTINCT master_id FROM notes)").each do |m|
+      @oddities << { :message => "Master with no Notes.", :master => m }
     end
     
-    # find currencies without any masters
-    Currency.includes(:masters).all.each do |c|
-      if c.masters.count == 0
-        @oddities << { :message => "Currency with no Masters.", :currency => c }
-      end
+    # notes w/o masters
+    Note.find_by_sql("SELECT * FROM notes WHERE master_id IS NULL OR master_id NOT IN (SELECT DISTINCT id FROM masters)").each do |n|
+      @oddities << { :message => "Note without Master.", :note => n }
     end
     
-    # find authorities without masters
-    Authority.includes(:masters).all.each do |a|
-      if a.masters.count == 0
-        @oddities << { :message => "Authority with no Masters.", :authority => a }
-      end
+    # find currencies without any masters or overprints!
+    Currency.find_by_sql("SELECT * FROM currencies WHERE id NOT IN (SELECT DISTINCT currency_id FROM masters) AND id NOT IN (SELECT DISTINCT overprint_currency_id FROM masters)").each do |c|
+      @oddities << { :message => "Currency with no Masters.", :currency => c }
     end
     
-    Region.includes(:masters).all.each do |r|
-      if r.children.blank? and r.masters.count == 0
-        @oddities << { :message => "Region with no Masters.", :region => r }
-      end
+    # find authorities without currencies
+    Authority.find_by_sql("SELECT * FROM authorities WHERE id NOT IN (SELECT DISTINCT authority_id FROM currencies)").each do |a|
+      @oddities << { :message => "Authority with no Currencies.", :authority => a }
+    end
+    
+    # find authorities without regions?
+    Authority.find_by_sql("SELECT * FROM authorities WHERE region_id IS NULL OR region_id NOT IN (SELECT DISTINCT id FROM regions)").each do |a|
+      @oddities << { :message => "Authority with no Region.", :authority => a }
+    end
+    
+    # find regions without authorities
+    Region.find_by_sql("SELECT * FROM regions WHERE id NOT IN (SELECT DISTINCT region_id FROM authorities)").each do |r|
+      @oddities << { :message => "Region with no Authorities.", :region => r }
+    end
+    
+    # find orphaned regions
+    Region.find_by_sql("SELECT * FROM regions WHERE parent_id IS NULL OR parent_id NOT IN (SELECT DISTINCT id FROM regions) ").each do |r|
+      @oddities << { :message => "Region without Parent.", :region => r }
     end
     
   end

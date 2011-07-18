@@ -8,7 +8,7 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
 
   helpers.each do |name|
     define_method(name) do |field, *args|
-      options = args.last.is_a?(Hash) ? args.pop : {}
+      options = args.last.is_a?(Hash) ? args.last : {}
 
       content = ''
 

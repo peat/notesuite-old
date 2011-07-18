@@ -27,7 +27,7 @@
       <% @oddities.each do |o| %>
         <li>
           <%= o[:message] %>
-          <%- [:master, :note, :authority, :region].each do |x| -%>
+          <%- [:master, :note, :authority, :region, :currency].each do |x| -%>
           <%= link_to( o[x].name, o[x] ) if o[x] %>
           <%- end -%>
         </li>

@@ -10,6 +10,16 @@ class PagesController < ApplicationController
       @oddities << { :message => "Master with no Notes.", :master => m }
     end
     
+    # masters w/o issuing dates
+    Master.find_by_sql("SELECT * FROM masters WHERE issued_on IS NULL").each do |m|
+      @oddities << { :message => "Master with no issue date.", :master => m }
+    end
+    
+    # masters w/o codes
+    Master.find_by_sql("SELECT * FROM masters WHERE code IS NULL or code=''").each do |m|
+      @oddities << { :message => "Master has no code.", :master => m }
+    end
+    
     # notes w/o masters
     Note.find_by_sql("SELECT * FROM notes WHERE master_id IS NULL OR master_id NOT IN (SELECT DISTINCT id FROM masters)").each do |n|
       @oddities << { :message => "Note without Master.", :note => n }

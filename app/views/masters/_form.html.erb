@@ -19,9 +19,9 @@
       <%= f.select :printer_id, Printer.for_select, :include_blank => true %>
       <%= f.select :overprint_currency_id, Currency.for_select, :include_blank => true %>
       <%= f.text_field :overprint_denomination, :collapse => true %>
-      <%= f.date_select :printed_on, :include_blank => true %>
-      <%= f.date_select :withdrawn_on, :include_blank => true %>
-      <%= f.date_select :lapsed_on, :include_blank => true %>
+      <%= f.date_select :printed_on, :include_blank => true, :start_year => 1900 %>
+      <%= f.date_select :withdrawn_on, :include_blank => true, :start_year => 1900 %>
+      <%= f.date_select :lapsed_on, :include_blank => true, :start_year => 1900 %>
       <%= f.submit create_or_update(@master) %>
     </ul>
   </fieldset>

@@ -16,7 +16,7 @@
       <%= f.text_field :serial %>
       <%= f.text_area :description %>
       <%= f.check_box :replacement %>
-      <%= f.date_select :printed_on, :include_blank => true %>
+      <%= f.date_select :printed_on, :include_blank => true, :start_year => 1900 %>
       <%= f.submit create_or_update( @note ) %>
     </ul>
   </fieldset>

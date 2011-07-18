@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621035717) do
+ActiveRecord::Schema.define(:version => 20110718180601) do
 
   create_table "authorities", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
 
   add_index "currencies", ["authority_id"], :name => "index_currencies_on_authority_id"
   add_index "currencies", ["region_id"], :name => "index_currencies_on_country_id"
+  add_index "currencies", ["unit"], :name => "index_currencies_on_unit"
 
   create_table "grades", :force => true do |t|
     t.string   "name",        :null => false
@@ -42,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "grades", ["rank"], :name => "index_grades_on_rank"
 
   create_table "masters", :force => true do |t|
     t.integer  "currency_id",            :null => false
@@ -59,9 +62,11 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
     t.integer  "printer_id"
   end
 
+  add_index "masters", ["code"], :name => "index_masters_on_code"
   add_index "masters", ["currency_id"], :name => "index_masters_on_currency_id"
   add_index "masters", ["denomination"], :name => "index_masters_on_denomination"
   add_index "masters", ["issued_on"], :name => "index_masters_on_issued_on"
+  add_index "masters", ["printer_id"], :name => "index_masters_on_printer_id"
 
   create_table "notes", :force => true do |t|
     t.integer  "master_id",                      :null => false
@@ -76,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
 
   add_index "notes", ["grade_id"], :name => "index_notes_on_grade_id"
   add_index "notes", ["master_id"], :name => "index_notes_on_master_id"
+  add_index "notes", ["serial"], :name => "index_notes_on_serial"
 
   create_table "printers", :force => true do |t|
     t.string   "name",       :null => false
@@ -83,6 +89,8 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "printers", ["region_id"], :name => "index_printers_on_region_id"
 
   create_table "regions", :force => true do |t|
     t.string   "name",        :null => false
@@ -95,5 +103,6 @@ ActiveRecord::Schema.define(:version => 20110621035717) do
 
   add_index "regions", ["ancestry"], :name => "index_regions_on_ancestry"
   add_index "regions", ["name"], :name => "index_countries_on_name"
+  add_index "regions", ["parent_id"], :name => "index_regions_on_parent_id"
 
 end

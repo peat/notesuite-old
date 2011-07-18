@@ -1,9 +1,37 @@
-<h3>Counts</h3>
-<ul>
-  <li>Masters: <%= Master.count %></li>
-  <li>Notes: <%= Note.count %></li>
-  <li>Regions: <%= Region.count %></li>
-  <li>Authorities: <%= Authority.count %></li>
-  <li>Currencies: <%= Currency.count %></li>
-  <li>Printers: <%= Printer.count %></li>
-</ul>
+<div id="sidebar" class="span-8">
+  <h3>Counts</h3>
+  <ul>
+    <li>Masters: <%= Master.count %></li>
+    <li>Notes: <%= Note.count %></li>
+    <li>Regions: <%= Region.count %></li>
+    <li>Authorities: <%= Authority.count %></li>
+    <li>Currencies: <%= Currency.count %></li>
+    <li>Printers: <%= Printer.count %></li>
+  </ul>
+
+  <h3>Recent Notes</h3>
+  <ul>
+    <% @recent_notes.each do |n| %>
+      <li><%= link_to n.master.name, n %></li>
+    <% end %>
+  </ul>
+
+</div>
+
+<div class="span-16 last">
+  <h3>Oddities</h3>
+  <% if @oddities.empty? %>
+    "Everything is in order, sir!"
+  <% else %>
+    <ul>
+      <% @oddities.each do |o| %>
+        <li>
+          <%= o[:message] %>
+          <%- [:master, :note, :authority, :region].each do |x| -%>
+          <%= link_to( o[x].name, o[x] ) if o[x] %>
+          <%- end -%>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

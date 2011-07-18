@@ -39,7 +39,9 @@ class Master < ActiveRecord::Base
   end
   
   def name_for_select
-    self.code.blank? ? self.name : self.name + " (#{self.code})"
+    out = self.name
+    out << (self.code.blank? ? " (#{self.authority.name})" : " (#{self.code})")
+    out
   end
 
   def name

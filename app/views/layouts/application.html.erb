@@ -7,28 +7,36 @@
   	<%= stylesheet_link_tag 'print', :media => 'print' %>
   	<!--[if IE]><%= stylesheet_link_tag 'ie' %><![endif]-->
   	<%= stylesheet_link_tag 'site' %>
+  	<link href="http://fonts.googleapis.com/css?family=Lobster&amp;v2" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="container">
-      <div id="header" class="span-24">
-        <ul>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Data Entry', data_entry_path %></li>
-          <li><%= link_to "Masters", masters_path %></li>
-          <li><%= link_to "Notes", notes_path %></li>
-          <li><%= link_to "Currencies", currencies_path %></li>
-          <li><%= link_to "Regions", regions_path %></li>
-          <li><%= link_to "Authorities", authorities_path %></li>
-          <li><%= link_to "Printers", printers_path %></li>
-          <li><%= link_to "Grading Guide", grades_path %></li>
-        </ul>
+
+      <h1><%= link_to 'NoteSuite', root_path %></h1>
+      
+      <div id="content" class="span-24">
+        
+        <div id="header" class="span-24">
+          <ul>
+            <li><%= link_to 'Data Entry', data_entry_path %></li>
+            <li><%= link_to "Masters", masters_path %></li>
+            <li><%= link_to "Notes", notes_path %></li>
+            <li><%= link_to "Currencies", currencies_path %></li>
+            <li><%= link_to "Regions", regions_path %></li>
+            <li><%= link_to "Authorities", authorities_path %></li>
+            <li><%= link_to "Printers", printers_path %></li>
+            <li><%= link_to "Grading Guide", grades_path %></li>
+          </ul>
+        </div>
+        <div class="span-24">
+          <p style="color: green"><%= flash[:notice] %></p>
+        </div>
+        <div class="span-24">
+          <%= yield %>
+        </div>
+      
       </div>
-      <div class="span-24">
-        <p style="color: green"><%= flash[:notice] %></p>
-      </div>
-      <div class="span-24">
-        <%= yield %>
-      </div>
+
     </div>
   </body>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js' %>

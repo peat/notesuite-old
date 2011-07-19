@@ -1,4 +1,4 @@
-<h1><%=h @authority.name %> <%= link_to icon('pencil'), edit_authority_path(@authority) %></h1>
+<h2><%=h @authority.name %> <%= link_to icon('pencil'), edit_authority_path(@authority) %></h2>
 <h2><%=h @authority.region.name %></h2>
 
 <h2>Masters <%= link_to_function icon('add'), '$("#masters_form").toggle(100)'%></h2>

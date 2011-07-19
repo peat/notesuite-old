@@ -1,9 +1,9 @@
 <div class="span-12 last">
-<h1>
+<h2>
   <%= link_to @master.region.name, @master.region %>
   <%=h @master.code %>
   <%= link_to icon('pencil'), edit_master_path(@master) %>
-</h1>
+</h2>
 <h2><%=h @master.denomination %> <%= link_to @master.currency.unit, @master.currency %></h2>
 
 <p>

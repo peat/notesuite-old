@@ -15,7 +15,7 @@ class Master < ActiveRecord::Base
   validates_uniqueness_of :currency_id, :scope => [:denomination, :issued_on, :overprint_currency_id, :code]
   
   default_scope :joins => [
-      'INNER JOIN "currencies" ON "masters".currency_id = "currencies".id',
+      'INNER JOIN "currencies" ON "masters"."currency_id" = "currencies"."id"',
       'INNER JOIN "regions" ON regions.id=currencies.region_id'
     ], :order => 'regions.name, SUBSTRING(masters.code FROM \'[0-9]{1,3}\')::INT, masters.issued_on, masters.denomination'
   

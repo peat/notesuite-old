@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.3'
 
 gem 'pg'
+gem 'unicorn'
 gem 'will_paginate'
 
 # Bundle edge Rails instead:
@@ -11,7 +12,6 @@ gem 'will_paginate'
 # gem 'sqlite3'
 
 # Use unicorn as the web server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'

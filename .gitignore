@@ -5,3 +5,4 @@ tmp/
 .idea/*
 data/*
 notes.txt
+*.swp

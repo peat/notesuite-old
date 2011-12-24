@@ -7,7 +7,7 @@ class Currency < ActiveRecord::Base
   validates_presence_of :unit, :region
   validates_uniqueness_of :unit, :scope => [:region_id, :authority_id]
 
-  default_scope includes(:region, :authority).order('regions.name, currencies.name')
+  default_scope includes(:region, :authority).order('regions.name, currencies.unit')
 
   def name
     self.region.name + ' ' + self.unit

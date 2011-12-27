@@ -15,6 +15,8 @@ module ApplicationHelper
 
   def n( num )
     suffix = ""
+
+    num = num.to_i if (num == num.to_i)
     
     if      num > 1_000_000_000_000 # trillion
       num = num / 1_000_000_000_000

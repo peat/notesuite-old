@@ -17,22 +17,22 @@
       <td>
         <%= link_to icon('pencil'), edit_note_path(note) %>
       </td>
-      <td><%= link_to_master note.master %></td>
+      <td><%= link_to "#{note.currency_region} #{note.master_code}", master_path( note.master_id ) %></td>
       <td>
-        <%= link_to "#{n note.master.denomination} #{note.master.currency.unit}", note -%>
-        <% if note.master.overprint -%>
-          (<abbr title="<%= "#{note.master.overprint_denomination} #{note.master.overprint_currency.unit}" %>">OP</abbr>)
+        <%= link_to "#{n note.master_denomination} #{note.currency_unit}", note_path( note.note_id ) -%>
+        <% if note.overprint_currency_id -%>
+          (<abbr title="<%= "#{note.overprint_denomination} #{note.overprint_currency_unit}" %>">OP</abbr>)
         <% end %>
       </td>
-      <td><%=year note.master.try(:issued_on) %></td>
+      <td><%=year note.master_issued_on %></td>
       <td>
-        <% if note.description.blank? -%>
-          <%=h note.grade.try(:name) %>
+        <% if note.note_description.blank? -%>
+          <%=h note.grade_name %>
         <% else -%>
-          <abbr title="<%=h note.description %>"><%=h note.grade.try(:name) %></abbr>
+          <abbr title="<%=h note.master_description %>"><%=h note.grade_name %></abbr>
         <% end -%>
       </td>
-      <td><%=h note.serial %></td>
+      <td><%=h note.note_serial %></td>
     </tr>
   <% end -%>
   </tbody>

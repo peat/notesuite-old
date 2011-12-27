@@ -15,20 +15,20 @@
     <% masters.each do |master| -%>
     <tr>
       <td>
-        <%= link_to icon('pencil'), edit_master_path(master) %>
+        <%= link_to icon('pencil'), edit_master_path(master.master_id) %>
       </td>
       <td>
-        <%= link_to_master master %>
+        <%= link_to "#{master.currency_region} #{master.master_code}", master_path(master.master_id) %>
       </td>
-      <td><%=year master.issued_on %></td>
+      <td><%=year master.master_issued_on %></td>
       <td>
-        <%=n master.denomination %> <%= link_to master.currency.unit, master.currency %>
-        <% if master.overprint -%>
+        <%=n master.master_denomination %> <%= link_to master.currency_unit, currency_path(master.currency_id) %>
+        <% if master.overprint_currency_id -%>
           (<abbr title="<%= "#{master.overprint_denomination} #{master.overprint_currency.unit}" %>">OP</abbr>)
         <% end %>
       </td>
-      <td><%=h master.description %></td>
-      <td><%= inv_count master %></td>
+      <td><%=h master.master_description %></td>
+      <td><%= master.note_count %></td>
     </tr>
     <% end -%>
   </tbody>

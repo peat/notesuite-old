@@ -3,7 +3,9 @@ class NotesController < ApplicationController
   # GET /notes.xml
   def index
     # ToDo figure out how to get #sort_key into ARel; it's a series of long joins!
-    @notes = Note.all.sort {|a,b| a.sort_key <=> b.sort_key }.paginate :page => params[:page]
+    # @notes = Note.all.sort {|a,b| a.sort_key <=> b.sort_key }.paginate :page => params[:page]
+    @notes = NoteCatalog.order('currency_region, master_code').paginate :page => params[:page]
+
     @note = Note.new
 
     respond_to do |format|

@@ -4,11 +4,12 @@
   <thead>
     <tr>
       <th style="width: 1em;">&nbsp;</th>
-      <th>Region &amp; Code</th>
-      <th>Banknote</th>
+      <th style="width: 8em;">Region &amp; Code</th>
+      <th style="width: 10em;">Banknote</th>
       <th>Issued</th>
       <th>Condition</th>
       <th style="width: 8em;">Serial</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -29,10 +30,11 @@
         <% if note.note_description.blank? -%>
           <%=h note.grade_name %>
         <% else -%>
-          <abbr title="<%=h note.master_description %>"><%=h note.grade_name %></abbr>
+          <abbr title="<%=h note.note_description %>"><%=h note.grade_name %></abbr>
         <% end -%>
       </td>
       <td><%=h note.note_serial %></td>
+      <td><%=truncate note.master_description %></td>
     </tr>
   <% end -%>
   </tbody>

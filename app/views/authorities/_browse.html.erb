@@ -5,6 +5,9 @@
       <th>&nbsp;</th>
       <th>Region</th>
       <th>Name</th>
+      <th>Currencies</th>
+      <th>Masters</th>
+      <th>Notes</th>
     </tr>
   </thead>
 
@@ -13,8 +16,11 @@
     <td>
       <%= link_to icon('pencil'), edit_authority_path( authority ) %>
     </td>
-    <td><%=h authority.region.name %></td>
+    <td><%=h link_to authority.region.name, authority.region %></td>
     <td><%= link_to authority.name, authority %></td>
+    <td><%= authority.currencies.count %></td>
+    <td><%= authority.masters.count %></td>
+    <td><%= authority.notes_count %></td>
   </tr>
 <% end %>
 </table>

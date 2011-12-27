@@ -1,7 +1,7 @@
 class Region < ActiveRecord::Base
 
   has_many :currencies, :dependent => :destroy
-  has_many :masters, :through => :currencies
+  has_many :masters, :class_name => 'MasterCatalog', :foreign_key => 'region_id'
 
   belongs_to :parent, :class_name => "Region"
   has_many :children, :foreign_key => :parent_id, :class_name => "Region"

@@ -1,6 +1,6 @@
 class Currency < ActiveRecord::Base
   belongs_to :region
-  has_many :masters, :dependent => :destroy
+  has_many :masters, :class_name => 'MasterCatalog', :foreign_key => :currency_id
   
   belongs_to :authority
   

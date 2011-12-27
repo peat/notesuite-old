@@ -8,11 +8,13 @@ class Master < ActiveRecord::Base
   belongs_to :overprint_currency, :class_name => 'Currency'
   has_one :overprint_region, :through => :overprint_currency, :source => :region
   
-  has_many :notes, :dependent => :destroy
+  has_many :notes, :class_name => 'NoteCatalog', :foreign_key => 'master_id'
   
   validates_presence_of :currency
   validates_uniqueness_of :code, :scope => :currency_id, :allow_blank => true
   validates_uniqueness_of :currency_id, :scope => [:denomination, :issued_on, :overprint_currency_id, :code]
+
+  default_scope includes(:region)
   
   scope :search, lambda { |value|
     fields = ['masters.code', 'cast(masters.denomination as varchar)', 'masters.description', 'currencies.unit', 'regions.name', 'authorities.name', 'printers.name']

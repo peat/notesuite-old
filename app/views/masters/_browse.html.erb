@@ -24,7 +24,7 @@
       <td>
         <%=n master.master_denomination %> <%= link_to master.currency_unit, currency_path(master.currency_id) %>
         <% if master.overprint_currency_id -%>
-          (<abbr title="<%= "#{master.overprint_denomination} #{master.overprint_currency.unit}" %>">OP</abbr>)
+          (<abbr title="<%= "#{n master.overprint_denomination} #{master.overprint_currency_unit}" %>">OP</abbr>)
         <% end %>
       </td>
       <td><%=h master.master_description %></td>

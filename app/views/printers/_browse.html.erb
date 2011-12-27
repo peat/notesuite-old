@@ -6,6 +6,7 @@
       <th>&nbsp;</th>
       <th>Region</th>
       <th>Name</th>
+      <th>Masters</th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
     </td>
     <td><%=h printer.region.name %></td>
     <td><%= link_to printer.name, printer %></td>
+    <td><%= printer.masters.count %></td>
   </tr>
 <% end %>
 </table>

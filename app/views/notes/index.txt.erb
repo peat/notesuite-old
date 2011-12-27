@@ -4,12 +4,11 @@ Notes:
 
 * Take grading with a pinch of salt. From best to worst: Uncirculated (UNC), About Uncirculated (AU), Extremely Fine (XF), Fine (F), Very Good (VG), Good (G), Poor (P).
 
-<% Region.includes(:masters).all.each do |c| -%>
-<% next if c.masters.empty? %>
-<%= "\n#{c.ancestry.gsub('Earth:','').gsub(':', ' - ').upcase}\n" %>
-<% c.masters.each do |m| -%>
-<% m.notes.each do |n| -%>
-<%= "  %-7s %-6s %-25s %-5s %-20s" % [m.code, m.issued_on.try(:year), (n( m.denomination ) + ' ' + m.currency.unit), n.grade.try(:name), m.description] %>
+<% previous_region = nil %>
+<% NoteCatalog.order('currency_region, master_code').each do |note| -%>
+<% if note.currency_region != previous_region -%>
+<%= "\n#{note.currency_region.upcase}\n" %>
+<% previous_region = note.currency_region -%>
 <% end -%>
-<% end -%>
+<%= "  %-7s %-6s %-25s %-5s %-20s" % [note.master_code, note.master_issued_on.try(:year), (n( note.master_denomination ) + ' ' + note.currency_unit), note.grade_name, note.master_description] %>
 <% end -%>

@@ -1,6 +1,7 @@
 <h2><%=h @region.name %> <%= link_to icon('pencil'), edit_region_path(@region) %></h2>
 <h2><%=h @region.native_name %></h2>
 
+<%= render :partial => 'layouts/map', :locals => { :q => @region.name } %>
 
 <h2>Currencies</h2>
 

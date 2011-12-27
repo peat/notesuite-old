@@ -1,4 +1,8 @@
-<div class="span-12 last">
+<div class="span-24 last">
+<div style="float:right">
+<%= render :partial => 'layouts/map', :locals => { :q => @master.region.name } %>
+</div>
+
 <h2>
   <%= link_to @master.region.name, @master.region %>
   <%=h @master.code %>

@@ -39,3 +39,8 @@ textarea { width: 16em; height: 10em;}
 #note-faces tr:hover { background-color: #fff; }
 
 .complete { font-weight: bold; color: #0a0; }
+
+#googleMap {
+  width: 425px;
+  height: 350px;
+}

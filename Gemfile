@@ -5,6 +5,8 @@ gem 'rails', '3.1.3'
 gem 'pg'
 gem 'unicorn'
 gem 'will_paginate'
+gem 'mongo'
+gem 'bson_ext'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

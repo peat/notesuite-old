@@ -36,7 +36,7 @@ class MastersController < ApplicationController
   end
   
   def search
-    @masters = Master.search( params[:q] ).paginate :page => params[:page]
+    @masters = MasterCatalog.search( params[:q] ).paginate :page => params[:page]
     @master = Master.new
 
     respond_to do |format|

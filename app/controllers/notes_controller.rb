@@ -16,7 +16,7 @@ class NotesController < ApplicationController
   end
   
   def search
-    @notes = Note.search( params[:q] ).paginate :page => params[:page]
+    @notes = NoteCatalog.search( params[:q] ).paginate :page => params[:page]
     @note = Note.new
 
     respond_to do |format|

@@ -3,8 +3,12 @@ NoteSuite::Application.routes.draw do
   resources :printers
   resources :authorities
   resources :grades
-  resources :notes, :collection => { :search => :get }
-  resources :masters, :collection => { :search => :get }
+  resources :notes do
+    get 'search', :on => :collection
+  end
+  resources :masters do
+    get 'search', :on => :collection
+  end
   resources :currencies
   resources :regions
 

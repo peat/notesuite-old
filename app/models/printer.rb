@@ -1,6 +1,6 @@
 class Printer < ActiveRecord::Base
   belongs_to :region
-  has_many :masters
+  has_many :masters, :class_name => 'MasterCatalog', :foreign_key => 'printer_id'
   validates_presence_of :name, :region
 
   default_scope order('printers.name')

@@ -135,7 +135,7 @@ ALTER SEQUENCE authorities_id_seq OWNED BY authorities.id;
 -- Name: authorities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('authorities_id_seq', 117, true);
+SELECT pg_catalog.setval('authorities_id_seq', 131, true);
 
 
 --
@@ -180,7 +180,7 @@ ALTER SEQUENCE countries_id_seq OWNED BY regions.id;
 -- Name: countries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('countries_id_seq', 109, true);
+SELECT pg_catalog.setval('countries_id_seq', 124, true);
 
 
 --
@@ -225,7 +225,7 @@ ALTER SEQUENCE currencies_id_seq OWNED BY currencies.id;
 -- Name: currencies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('currencies_id_seq', 149, true);
+SELECT pg_catalog.setval('currencies_id_seq', 163, true);
 
 
 --
@@ -367,7 +367,7 @@ ALTER SEQUENCE masters_id_seq OWNED BY masters.id;
 -- Name: masters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('masters_id_seq', 542, true);
+SELECT pg_catalog.setval('masters_id_seq', 559, true);
 
 
 --
@@ -405,7 +405,7 @@ ALTER SEQUENCE notes_id_seq OWNED BY notes.id;
 -- Name: notes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('notes_id_seq', 848, true);
+SELECT pg_catalog.setval('notes_id_seq', 865, true);
 
 
 --
@@ -433,7 +433,7 @@ ALTER SEQUENCE printers_id_seq OWNED BY printers.id;
 -- Name: printers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: peat
 --
 
-SELECT pg_catalog.setval('printers_id_seq', 10, true);
+SELECT pg_catalog.setval('printers_id_seq', 11, true);
 
 
 --
@@ -617,7 +617,21 @@ COPY authorities (id, name, region_id, created_at, updated_at) FROM stdin;
 114	Stadt Quedlinburg	106	2011-07-18 22:20:55.231187	2011-07-18 22:20:55.231187
 115	Stadt Bad Salzig	107	2011-07-18 22:25:40.144164	2011-07-18 22:25:40.144164
 116	Korean Central Bank	108	2011-12-27 05:09:45.207605	2011-12-27 05:09:45.207605
-117	Singapore Bank ?	109	2011-12-27 11:34:33.406288	2011-12-27 11:34:33.406288
+117	Monetary Authority of Singapore	109	2011-12-27 11:34:33.406288	2011-12-29 00:50:23.986719
+118	Bank of Biafra	110	2012-01-02 04:16:24.114359	2012-01-02 04:16:24.114359
+119	El Banco De La Republica	111	2012-01-02 04:21:24.587558	2012-01-02 04:21:24.587558
+120	Bank Markazi Iran	112	2012-01-02 04:27:06.0242	2012-01-02 04:27:06.0242
+121	The Bank of Korea	113	2012-01-02 04:30:51.855807	2012-01-02 04:30:51.855807
+122	Central Bank of Liberia	115	2012-01-02 04:34:03.934667	2012-01-02 04:34:03.934667
+123	Banky Foiben'i Madagasikara	116	2012-01-02 04:37:52.595554	2012-01-02 04:37:52.595554
+124	Central Bank of Nigeria	117	2012-01-02 04:46:52.078027	2012-01-02 04:46:52.078027
+125	Banco Central del Paraguay	118	2012-01-02 04:53:51.225564	2012-01-02 04:53:51.225564
+126	Qatar Central Bank	119	2012-01-02 04:57:13.230972	2012-01-02 04:57:13.230972
+127	Banque Nationale du Rawanda	120	2012-01-02 05:02:23.464855	2012-01-02 05:02:23.464855
+128	Narodna Banka Srbije	121	2012-01-02 05:45:51.691296	2012-01-02 05:45:51.691296
+129	Central Bank of Solomon Islands	122	2012-01-02 05:50:13.067674	2012-01-02 05:50:13.067674
+130	Central Bank of Sri Lanka	123	2012-01-02 05:54:33.635589	2012-01-02 05:54:33.635589
+131	National Reserve Bank of Tonga	124	2012-01-02 05:56:40.138846	2012-01-02 05:56:40.138846
 \.
 
 
@@ -775,6 +789,20 @@ COPY currencies (id, unit, region_id, symbol, created_at, updated_at, authority_
 147	Won	108		2011-12-27 05:09:54.155297	2011-12-27 05:09:54.155297	116
 148	Chon	108		2011-12-27 10:16:44.565682	2011-12-27 10:16:44.565682	116
 149	Dollar	109		2011-12-27 11:34:44.634352	2011-12-27 11:34:44.634352	117
+150	Pound	110		2012-01-02 04:16:32.033973	2012-01-02 04:16:32.033973	118
+151	Pesos Oro	111		2012-01-02 04:21:34.763796	2012-01-02 04:21:34.763796	119
+152	Rials	112		2012-01-02 04:27:11.768564	2012-01-02 04:27:11.768564	120
+153	Jeon	114		2012-01-02 04:31:01.78116	2012-01-02 04:31:01.78116	121
+154	Dollars	115		2012-01-02 04:34:10.138891	2012-01-02 04:34:10.138891	122
+155	Ariary	116		2012-01-02 04:39:34.577582	2012-01-02 04:39:34.577582	123
+156	Naira	117		2012-01-02 04:47:16.166957	2012-01-02 04:47:16.166957	124
+157	Guaranies	118		2012-01-02 04:54:11.740286	2012-01-02 04:54:11.740286	125
+158	Riyal	119		2012-01-02 04:57:19.473032	2012-01-02 04:57:19.473032	126
+159	Francs	120		2012-01-02 05:38:37.845675	2012-01-02 05:38:37.845675	127
+160	Dinara	121		2012-01-02 05:46:01.553234	2012-01-02 05:46:01.553234	128
+161	Dollars	122		2012-01-02 05:50:19.302741	2012-01-02 05:50:19.302741	129
+162	Rupees	123		2012-01-02 05:54:46.711258	2012-01-02 05:54:46.711258	130
+163	Pa'anga	124		2012-01-02 05:56:59.269404	2012-01-02 06:00:07.327332	131
 \.
 
 
@@ -956,7 +984,6 @@ COPY masters (id, currency_id, code, denomination, description, overprint_curren
 157	35	P-134	500000000.0	Bald man with mustache; building	\N	0.0	1993-01-01	\N	\N	\N	2009-05-06 19:49:35.255068	2009-05-06 19:49:35.255068	\N
 158	35	P-126	1000000000.0	Pink girl; building	\N	0.0	1993-01-01	\N	\N	\N	2009-05-06 19:52:32.231229	2009-05-06 19:52:32.231229	\N
 106	25	MMM14	10000.0	Olive, blue, Mavrodi; 10000 Biletov	\N	0.0	1994-01-01	\N	\N	\N	2009-05-05 20:13:17.111189	2009-05-06 20:06:01.342681	\N
-159	36		25.0	Small, green and black printing	\N	0.0	1922-05-01	\N	\N	\N	2009-05-10 02:44:52.337072	2009-05-10 02:44:52.337072	\N
 160	37	P-58	1.0	Green, black printing, red seal, embossed on right	\N	0.0	1920-03-01	\N	\N	\N	2009-05-10 02:52:48.063323	2009-05-10 02:52:48.063323	\N
 161	37	P-62	2.0	Red printing, seal on left, embossed on right	\N	0.0	1920-03-01	\N	\N	\N	2009-05-10 02:54:51.542722	2009-05-10 02:54:51.542722	\N
 162	37	P-67	10.0	Green and black; green, black, and red	\N	0.0	1920-02-06	\N	\N	\N	2009-05-10 02:56:53.453124	2009-05-10 02:56:53.453124	\N
@@ -1168,7 +1195,6 @@ COPY masters (id, currency_id, code, denomination, description, overprint_curren
 371	90	P-95	5.0	Sir W. Laurier; kingfisher	\N	0.0	1986-01-01	\N	\N	\N	2009-05-23 19:52:05.388394	2009-05-23 19:52:05.388394	\N
 372	91	P-877	1.0	Group of 8 farmers walking on path	\N	0.0	1962-01-01	\N	\N	\N	2009-05-23 19:57:32.372875	2009-05-23 19:57:32.372875	\N
 373	91	P-878	2.0	Large bridge with train	\N	0.0	1962-01-01	\N	\N	\N	2009-05-23 19:58:53.229284	2009-05-23 19:58:53.229284	\N
-374	92		10.0	Perforated on left, red star seal, blue car.  Gas coupon?	\N	0.0	1990-01-01	\N	\N	\N	2009-05-23 20:01:55.209515	2009-05-23 20:01:55.209515	\N
 375	93	P-FX1	0.1	Waterfall; "Bank of China Foreign Exchange Certificate"	\N	0.0	1979-01-01	\N	\N	\N	2009-05-23 20:04:07.402244	2009-05-23 20:04:07.402244	\N
 417	107	P-78A?	1.0	Designs; oil drilling ship at sea	\N	0.0	1990-01-01	\N	\N	\N	2009-06-08 02:32:09.567285	2009-06-08 02:32:09.567285	\N
 418	108	P-35	1.0	Bright green pattern; bright yellow pattern	\N	0.0	1992-01-01	\N	\N	\N	2009-06-08 02:35:29.564754	2009-06-08 02:35:29.564754	\N
@@ -1190,8 +1216,6 @@ COPY masters (id, currency_id, code, denomination, description, overprint_curren
 391	96	P-82	10.0	Masque Pende (mask); Danseurs Pende (crazy looking dancers)	\N	0.0	1997-11-01	\N	\N	\N	2009-05-23 20:39:47.377675	2009-05-23 20:39:47.377675	\N
 393	97	P-185	5.0	Queen Nefertiti, orange background	\N	0.0	1997-01-01	\N	\N	\N	2009-05-23 20:46:16.272247	2009-05-23 20:46:16.272247	\N
 392	97	P-188	5.0	Queen Nefertiti, blue and purple background	\N	0.0	2001-01-01	\N	\N	\N	2009-05-23 20:44:52.917451	2009-05-23 20:46:50.949513	\N
-395	97		10.0	Old fashioned soldier, people w/ flag; black and red printing	\N	0.0	2001-01-01	\N	\N	\N	2009-05-23 20:50:25.816196	2009-05-23 20:50:25.816196	\N
-394	97		10.0	Sphinx, purple center pattern; Mosque, purple center pattern	\N	0.0	2002-01-01	\N	\N	\N	2009-05-23 20:48:43.366264	2009-05-23 20:50:44.298214	\N
 396	97	P-189	10.0	Sphinx, blue center pattern; Mosque, blue center pattern	\N	0.0	1998-01-01	\N	\N	\N	2009-05-23 20:53:22.870323	2009-05-23 20:53:22.870323	\N
 397	98	P-1	1.0	Woman with nose ring, flanking children, raising of flag; classroom with students	\N	0.0	1997-05-24	\N	\N	\N	2009-06-08 01:50:32.748826	2009-06-08 01:50:32.748826	\N
 398	99	P-33	1.0	Town in valley, man on horse, radio tower, all in red; cliffside fortress in red	\N	0.0	1993-01-01	\N	\N	\N	2009-06-08 01:54:10.688738	2009-06-08 01:54:10.688738	\N
@@ -1294,21 +1318,6 @@ COPY masters (id, currency_id, code, denomination, description, overprint_curren
 495	131	P-33d	10.0	Blue-green on tan underprint. Map of Burundi with arms superimposed at center.	\N	0.0	1997-02-05	\N	\N	\N	2011-01-11 04:39:43.431434	2011-01-11 04:39:43.431434	\N
 496	69	P-35	100.0	Young woman at left, arms at center; harvesting bananas at center.	\N	0.0	1998-01-01	\N	\N	\N	2011-01-11 04:46:10.182669	2011-01-11 04:46:10.182669	\N
 497	7	P-54?	2.0	Red printing, king and old church; cross and holy figures.	\N	0.0	2004-01-01	\N	\N	\N	2011-01-11 17:26:12.170082	2011-01-11 17:26:12.170082	\N
-498	137		1.0	Black printing w/ red serial; yellow/orange printing w/ seal	\N	0.0	1941-12-29	\N	\N	\N	2011-07-18 21:09:05.887014	2011-07-18 21:09:05.887014	\N
-499	138		1.0	Red printing, with serial and seal in green; very simple green printing	\N	0.0	1943-01-01	\N	\N	\N	2011-07-18 21:16:01.582286	2011-07-18 21:16:01.582286	\N
-500	139		1.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:21:31.31566	2011-07-18 21:21:31.31566	\N
-501	139		5.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:22:25.627701	2011-07-18 21:22:25.627701	\N
-502	139		10.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:23:15.573494	2011-07-18 21:23:15.573494	\N
-503	140		10.0	Black printing, red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:24:29.318316	2011-07-18 21:24:29.318316	\N
-504	141		1.0	Black on purple pattern	\N	0.0	\N	\N	\N	\N	2011-07-18 21:27:50.313736	2011-07-18 21:27:50.313736	\N
-505	139		1.0	Black printing with red serial numbers	\N	0.0	1943-01-01	\N	\N	\N	2011-07-18 21:29:01.306478	2011-07-18 21:29:01.306478	\N
-506	140		50.0	Black printing with red serials	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:30:34.048237	2011-07-18 21:30:34.048237	\N
-507	140		25.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:32:06.943703	2011-07-18 21:32:06.943703	\N
-508	142		10.0	Building (Solschacht); coat of arms	\N	0.0	1921-06-01	\N	\N	\N	2011-07-18 22:12:06.973899	2011-07-18 22:12:06.973899	\N
-509	143		25.0	Church (Neustädter Kirche); coins and coat of arms	\N	0.0	1921-07-01	\N	\N	\N	2011-07-18 22:15:13.042925	2011-07-18 22:15:13.042925	\N
-510	144		10.0	Red printing; Church (Kirche zu Egestrof)	\N	0.0	1921-06-30	\N	\N	\N	2011-07-18 22:18:36.323665	2011-07-18 22:18:36.323665	\N
-511	145		25.0	Coat of arms; House (Klopstocks Geburtshaus)	\N	0.0	1921-06-01	\N	1924-12-31	\N	2011-07-18 22:23:27.406744	2011-07-18 22:23:27.406744	\N
-512	146		25.0	Woman, trees, spring, grapes; small church in woods	\N	0.0	1921-04-25	\N	\N	\N	2011-07-18 22:26:24.809484	2011-07-18 22:26:24.809484	\N
 267	63	P-52	1.0	Chinthe, coat of arms	\N	0.0	1993-01-01	\N	\N	\N	2009-05-13 03:21:12.395135	2009-05-13 03:30:51.993473	\N
 513	147	P-38	50.0	"Socialist Visitor" Issue. Red and blue; Temple and olive branch; Olive branch and "50"	\N	0.0	1988-01-01	\N	\N	\N	2011-12-27 10:12:07.248187	2011-12-27 10:12:07.248187	\N
 514	147	P-37	10.0	"Socialist Visitor" Issue. Red and blue; Temple and olive branch; Olive branch and "10"	\N	0.0	1988-01-01	\N	\N	\N	2011-12-27 10:13:26.543051	2011-12-27 10:13:26.543051	\N
@@ -1340,6 +1349,42 @@ COPY masters (id, currency_id, code, denomination, description, overprint_curren
 540	147	P-39b (CS2)	1.0	Black and green printing. Woman with flowers; mountains and spirit at left. Six digit serial, large red specimen characters nearby.	\N	0.0	1992-01-01	\N	\N	\N	2011-12-27 11:26:17.235448	2011-12-27 11:26:17.235448	\N
 541	147	P-48	200.0	Green on multicolor underprint. Flowers; "200".	\N	0.0	2005-01-01	\N	\N	\N	2011-12-27 11:28:19.432574	2011-12-27 11:28:19.432574	\N
 542	149	P-40	10.0	Red printing with foil strip, hologram. Yusof bin Ishak; sports scenes.	\N	0.0	1999-01-01	\N	\N	\N	2011-12-27 11:35:50.709624	2011-12-27 11:35:50.709624	\N
+159	36	\N	25.0	Small, green and black printing	\N	0.0	1922-05-01	\N	\N	\N	2009-05-10 02:44:52.337072	2009-05-10 02:44:52.337072	\N
+374	92	\N	10.0	Perforated on left, red star seal, blue car.  Gas coupon?	\N	0.0	1990-01-01	\N	\N	\N	2009-05-23 20:01:55.209515	2009-05-23 20:01:55.209515	\N
+395	97	\N	10.0	Old fashioned soldier, people w/ flag; black and red printing	\N	0.0	2001-01-01	\N	\N	\N	2009-05-23 20:50:25.816196	2009-05-23 20:50:25.816196	\N
+394	97	\N	10.0	Sphinx, purple center pattern; Mosque, purple center pattern	\N	0.0	2002-01-01	\N	\N	\N	2009-05-23 20:48:43.366264	2009-05-23 20:50:44.298214	\N
+498	137	\N	1.0	Black printing w/ red serial; yellow/orange printing w/ seal	\N	0.0	1941-12-29	\N	\N	\N	2011-07-18 21:09:05.887014	2011-07-18 21:09:05.887014	\N
+499	138	\N	1.0	Red printing, with serial and seal in green; very simple green printing	\N	0.0	1943-01-01	\N	\N	\N	2011-07-18 21:16:01.582286	2011-07-18 21:16:01.582286	\N
+500	139	\N	1.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:21:31.31566	2011-07-18 21:21:31.31566	\N
+501	139	\N	5.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:22:25.627701	2011-07-18 21:22:25.627701	\N
+502	139	\N	10.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:23:15.573494	2011-07-18 21:23:15.573494	\N
+503	140	\N	10.0	Black printing, red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:24:29.318316	2011-07-18 21:24:29.318316	\N
+504	141	\N	1.0	Black on purple pattern	\N	0.0	\N	\N	\N	\N	2011-07-18 21:27:50.313736	2011-07-18 21:27:50.313736	\N
+508	142	\N	10.0	Building (Solschacht); coat of arms	\N	0.0	1921-06-01	\N	\N	\N	2011-07-18 22:12:06.973899	2011-07-18 22:12:06.973899	\N
+505	139	\N	1.0	Black printing with red serial numbers	\N	0.0	1943-01-01	\N	\N	\N	2011-07-18 21:29:01.306478	2011-07-18 21:29:01.306478	\N
+506	140	\N	50.0	Black printing with red serials	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:30:34.048237	2011-07-18 21:30:34.048237	\N
+507	140	\N	25.0	Black printing with red serial	\N	0.0	1942-01-01	\N	\N	\N	2011-07-18 21:32:06.943703	2011-07-18 21:32:06.943703	\N
+509	143	\N	25.0	Church (Neustädter Kirche); coins and coat of arms	\N	0.0	1921-07-01	\N	\N	\N	2011-07-18 22:15:13.042925	2011-07-18 22:15:13.042925	\N
+510	144	\N	10.0	Red printing; Church (Kirche zu Egestrof)	\N	0.0	1921-06-30	\N	\N	\N	2011-07-18 22:18:36.323665	2011-07-18 22:18:36.323665	\N
+511	145	\N	25.0	Coat of arms; House (Klopstocks Geburtshaus)	\N	0.0	1921-06-01	\N	1924-12-31	\N	2011-07-18 22:23:27.406744	2011-07-18 22:23:27.406744	\N
+512	146	\N	25.0	Woman, trees, spring, grapes; small church in woods	\N	0.0	1921-04-25	\N	\N	\N	2011-07-18 22:26:24.809484	2011-07-18 22:26:24.809484	\N
+543	150	P-5	1.0	Dark brown on green, brown and orange underprint. Palm tree and small rising sun at top left center; Arms at right.	\N	0.0	1968-01-01	\N	\N	\N	2012-01-02 04:19:43.607199	2012-01-02 04:19:43.607199	\N
+544	151	P-426e	100.0	Violet, brown, orange and dark red on multicolor underprint. General Antonio Nariño at left; Villa de Leyva, flat bed letterpress at lower right.	\N	0.0	1991-01-01	\N	\N	\N	2012-01-02 04:24:09.444964	2012-01-02 04:26:21.130477	11
+545	152	P-143d	1000.0	Brown and dark green on multicolor underprint. Khomeini at right; Mosque of Omar (Dome of the Rock) in Jerusalem at center. 	\N	0.0	1992-01-01	\N	\N	\N	2012-01-02 04:29:29.152281	2012-01-02 04:29:29.152281	\N
+546	153	P-28	10.0	Dark blue printing with red seal.	\N	0.0	1962-01-01	\N	\N	\N	2012-01-02 04:32:11.502733	2012-01-02 04:32:11.502733	\N
+547	154	P-26	5.0	Red and brown on yellow underprint. Edward J Roye; woman in field.	\N	0.0	2006-01-01	\N	\N	\N	2012-01-02 04:36:55.06254	2012-01-02 04:36:55.06254	\N
+548	155	P-86	100.0	Blue and tan on multicolor underprint. Island; crazy palm tree?	\N	0.0	2004-01-01	\N	\N	\N	2012-01-02 04:41:39.266123	2012-01-02 04:41:39.266123	\N
+549	156	P-24g	5.0	Purple and brown-violet on multicolor underprint. Sir Abubakar Tafawa Balewa alhaji at left; Dancers at center right. 	\N	0.0	2002-01-01	\N	\N	\N	2012-01-02 04:49:13.805425	2012-01-02 04:49:13.805425	\N
+550	156	P-32	5.0	Alhaji Sir Abubakar Tafawa Salewa at left; Drum players	\N	0.0	2006-01-01	\N	\N	\N	2012-01-02 04:50:29.743575	2012-01-02 04:50:29.743575	\N
+551	157	P-222a	1000.0	Purple on multicolor underprint. Mariscal Francisco Solano Lopez right, arms at left, without anniversary text below date.	\N	0.0	2004-01-01	\N	\N	\N	2012-01-02 04:56:20.301572	2012-01-02 04:56:20.301572	1
+552	158	P-NEW	1.0	Architectural mosaics; birds.	\N	0.0	2008-01-01	\N	\N	\N	2012-01-02 04:59:01.213727	2012-01-02 04:59:01.213727	\N
+553	88	P-111	2000.0	Blue on multicolor underprint. Imaginative reproduction of the Solar System at right, with mention of the event; The map of Romania having the colors of the national flag. Transparent pink window.	\N	0.0	1999-01-01	\N	\N	\N	2012-01-02 05:01:14.991639	2012-01-02 05:01:14.991639	\N
+554	159	P-29b	100.0	Green, brown and blue on yellow underprint. Oxen and farmer plowing at center; Mountain and lake.	\N	0.0	2003-09-01	\N	\N	\N	2012-01-02 05:42:15.093204	2012-01-02 05:42:15.093204	\N
+555	160	P-46	10.0	Man with mustache, sideburns, collar; old guy with big white mustache, seated.	\N	0.0	2006-01-01	\N	\N	\N	2012-01-02 05:47:55.059308	2012-01-02 05:47:55.059308	\N
+556	160	P-47	20.0	Man with mustache and full beard, fancy hat; seated man with mustache and beard.	\N	0.0	2006-01-01	\N	\N	\N	2012-01-02 05:49:05.698608	2012-01-02 05:49:05.698608	\N
+557	161	P-25	2.0	Green and pink printing; fishing scene.	\N	0.0	2004-01-01	\N	\N	\N	2012-01-02 05:52:49.696859	2012-01-02 05:52:49.696859	\N
+558	162	P-NEW	20.0	Drummer and dancer; port scene, owl, butterfly.	\N	0.0	2010-01-01	\N	\N	\N	2012-01-02 05:55:46.71035	2012-01-02 05:55:46.71035	1
+559	163	P-37	1.0	Green print of king; humpback whale leaping	\N	0.0	2010-01-01	\N	\N	\N	2012-01-02 05:59:18.113719	2012-01-02 05:59:18.113719	\N
 \.
 
 
@@ -2193,8 +2238,25 @@ COPY notes (id, master_id, printed_on, serial, description, grade_id, created_at
 844	539	\N	?? 00000000		729449236	2011-12-27 11:25:46.04966	2011-12-27 11:25:46.04966	f	t
 845	540	\N	?? 000000		729449236	2011-12-27 11:26:26.332554	2011-12-27 11:26:26.332554	f	t
 846	541	\N	?? 000000	Large red "specimen" characters, ala CS2 series notes.	729449236	2011-12-27 11:29:13.100569	2011-12-27 11:29:13.100569	f	t
-847	542	\N	ONY04713		72	2011-12-27 11:37:06.518352	2011-12-27 11:37:06.518352	f	f
-848	542	\N	OML567472		72	2011-12-27 11:37:27.632439	2011-12-27 11:37:27.632439	f	f
+848	542	\N	OML567472	Circulated; light creasing, wavy paper, no tears.	72	2011-12-27 11:37:27.632439	2011-12-27 13:36:11.014374	f	f
+847	542	\N	ONY04713	Circulated; light creasing, wavy paper, no tears.	72	2011-12-27 11:37:06.518352	2011-12-27 13:36:24.696024	f	f
+849	543	\N	DP0604879		729449236	2012-01-02 04:20:03.925882	2012-01-02 04:20:03.925882	f	f
+850	544	\N	34569285		729449236	2012-01-02 04:24:28.602926	2012-01-02 04:24:28.602926	f	f
+851	545	\N	??/? ??????		729449236	2012-01-02 04:29:50.60796	2012-01-02 04:29:50.60796	f	f
+852	546	\N	?		729449236	2012-01-02 04:33:05.040975	2012-01-02 04:33:05.040975	f	f
+853	547	\N	AB1128370		729449236	2012-01-02 04:37:09.678301	2012-01-02 04:37:09.678301	f	f
+854	548	\N	A4748161S		729449236	2012-01-02 04:41:58.821348	2012-01-02 04:41:58.821348	f	f
+855	549	\N	H/54 495951		729449236	2012-01-02 04:49:41.236141	2012-01-02 04:49:41.236141	f	f
+856	550	\N	SV263651		729449236	2012-01-02 04:50:44.559742	2012-01-02 04:50:44.559742	f	f
+857	551	\N	C03312396		729449236	2012-01-02 04:56:34.545006	2012-01-02 04:56:34.545006	f	f
+858	552	\N	?/?? ??????		729449236	2012-01-02 04:59:37.738051	2012-01-02 04:59:37.738051	f	f
+859	553	\N	001A0857928		729449236	2012-01-02 05:01:30.410641	2012-01-02 05:01:30.410641	f	f
+860	554	\N	AG7142513		729449236	2012-01-02 05:44:18.196096	2012-01-02 05:44:18.196096	f	f
+861	555	\N	AG 4093500		729449236	2012-01-02 05:48:13.563191	2012-01-02 05:48:13.563191	f	f
+862	556	\N	AA 8321500		729449236	2012-01-02 05:49:19.173185	2012-01-02 05:49:19.173185	f	f
+863	557	\N	C/4 596773		729449236	2012-01-02 05:53:27.816808	2012-01-02 05:53:27.816808	f	f
+864	558	\N	W/10 059133		729449236	2012-01-02 05:56:06.318674	2012-01-02 05:56:06.318674	f	f
+865	559	\N	A610330		729449236	2012-01-02 05:59:36.114015	2012-01-02 05:59:36.114015	f	f
 \.
 
 
@@ -2213,6 +2275,7 @@ COPY printers (id, name, region_id, created_at, updated_at) FROM stdin;
 8	Harrison & Sons Limited	39	2009-06-08 03:21:24.738501	2009-06-08 03:21:24.738501
 9	Casa de Moeda do Brasil	12	2010-04-18 21:23:19.322233	2010-04-18 21:23:19.322233
 10	Bundesdruckerei	21	2010-04-18 21:26:47.823107	2010-04-18 21:26:47.823107
+11	Imprenta de Billettes	111	2012-01-02 04:25:42.223595	2012-01-02 04:25:42.223595
 \.
 
 
@@ -2277,7 +2340,6 @@ COPY regions (id, name, native_name, created_at, updated_at, parent_id, ancestry
 12	Brazil		2009-04-29 23:35:17.225037	2011-07-16 20:46:43.79734	98	Earth:South America:Brazil
 88	Burundi		2011-01-11 02:52:41.264651	2011-07-16 20:46:57.875418	96	Earth:Asia:Burundi
 60	Canada		2009-05-23 19:50:59.808785	2011-07-16 20:47:49.841761	99	Earth:North America:Canada
-62	Congo		2009-05-23 20:37:06.784157	2011-07-16 20:48:25.584014	97	Earth:Africa:Congo
 86	Cook Islands		2011-01-10 05:20:48.407834	2011-07-16 20:49:43.974555	100	Earth:Oceania:Cook Islands
 49	Costa Rica		2009-05-17 22:01:14.512847	2011-07-16 20:50:44.547623	101	Earth:Central America:Costa Rica
 79	Cuba		2010-01-10 02:26:14.661053	2011-07-16 20:51:00.980403	101	Earth:Central America:Cuba
@@ -2287,7 +2349,6 @@ COPY regions (id, name, native_name, created_at, updated_at, parent_id, ancestry
 65	Georgia		2009-06-08 01:52:38.953239	2011-07-16 20:52:56.107332	96	Earth:Asia:Georgia
 41	Guinea	Republique de Guinee	2009-05-17 20:48:18.790912	2011-07-16 20:53:11.898677	97	Earth:Africa:Guinea
 31	Guinea-Bissau		2009-05-10 17:45:33.940713	2011-07-16 20:53:17.57043	97	Earth:Africa:Guinea-Bissau
-66	Guyana		2009-06-08 01:59:27.878825	2011-07-16 20:53:22.186654	97	Earth:Africa:Guyana
 67	Haiti	Republique d'Haiti	2009-06-08 02:05:36.522297	2011-07-16 20:53:30.529112	101	Earth:Central America:Haiti
 71	India		2009-06-08 02:30:12.320587	2011-07-16 20:53:53.015792	96	Earth:Asia:India
 13	Iraq		2009-04-30 04:43:41.280076	2011-07-16 20:54:25.679224	102	Earth:Middle East:Iraq
@@ -2306,6 +2367,7 @@ COPY regions (id, name, native_name, created_at, updated_at, parent_id, ancestry
 82	Peru	Peru	2010-04-18 21:11:04.810367	2011-07-16 20:57:46.378907	98	Earth:South America:Peru
 97	Africa	\N	2011-07-16 20:43:05.851417	2011-07-16 20:43:43.993821	94	Earth:Africa
 15	Russia	Российская Федерация	2009-05-05 20:06:18.756842	2011-07-16 20:58:14.041955	96	Earth:Asia:Russia
+66	Guyana		2009-06-08 01:59:27.878825	2011-12-28 19:57:20.952024	98	Earth:South America:Guyana
 98	South America	\N	2011-07-16 20:44:06.321165	2011-07-16 20:44:35.136365	94	Earth:South America
 6	Azerbaijan	Azərbaycan	2009-04-29 19:49:28.703524	2011-07-16 20:46:01.727909	96	Earth:Asia:Azerbaijan
 99	North America	\N	2011-07-16 20:47:40.116155	2011-07-16 20:47:40.116155	94	Earth:North America
@@ -2329,6 +2391,22 @@ COPY regions (id, name, native_name, created_at, updated_at, parent_id, ancestry
 18	Philippines		2009-05-05 20:53:53.240762	2011-07-18 22:30:19.484071	96	Earth:Asia:Philippines
 108	North Korea		2011-12-27 05:08:50.691129	2011-12-27 11:16:30.988191	96	Earth:Asia:North Korea
 109	Singapore	Singapura	2011-12-27 11:31:03.880125	2011-12-27 11:31:03.880125	96	Earth:Asia:Singapore
+62	Democratic Republic of the Congo		2009-05-23 20:37:06.784157	2011-12-28 19:55:58.395312	97	Earth:Africa:Democratic Republic of the Congo
+110	Republic of Biafra		2012-01-02 04:16:14.845132	2012-01-02 04:16:14.845132	97	Earth:Africa:Republic of Biafra
+111	Colombia		2012-01-02 04:21:04.226711	2012-01-02 04:26:21.142785	98	Earth:South America:Colombia
+112	Iran		2012-01-02 04:26:41.108464	2012-01-02 04:26:41.108464	102	Earth:Middle East:Iran
+113	South Korea		2012-01-02 04:30:08.35021	2012-01-02 04:30:08.35021	96	Earth:Asia:South Korea
+114	Korea		2012-01-02 04:30:30.746615	2012-01-02 04:30:30.746615	96	Earth:Asia:Korea
+115	Liberia	Republic of Liberia	2012-01-02 04:33:51.27354	2012-01-02 04:33:51.27354	97	Earth:Africa:Liberia
+116	Madagascar	Madagasikara	2012-01-02 04:37:40.02677	2012-01-02 04:37:40.02677	97	Earth:Africa:Madagascar
+117	Nigeria		2012-01-02 04:46:43.852006	2012-01-02 04:46:43.852006	97	Earth:Africa:Nigeria
+118	Paraguay	Republica Del Paraguay	2012-01-02 04:53:31.136584	2012-01-02 04:53:31.136584	98	Earth:South America:Paraguay
+119	Qatar		2012-01-02 04:57:07.424362	2012-01-02 04:57:07.424362	102	Earth:Middle East:Qatar
+120	Rwanda		2012-01-02 05:02:09.116828	2012-01-02 05:02:09.116828	97	Earth:Africa:Rwanda
+121	Serbia	Srbije	2012-01-02 05:45:38.942687	2012-01-02 05:45:38.942687	95	Earth:Europe:Serbia
+122	Solomon Islands		2012-01-02 05:49:52.358679	2012-01-02 05:49:52.358679	100	Earth:Oceania:Solomon Islands
+123	Sri Lanka		2012-01-02 05:54:22.212775	2012-01-02 05:54:22.212775	96	Earth:Asia:Sri Lanka
+124	Tonga		2012-01-02 05:56:30.166667	2012-01-02 05:56:30.166667	100	Earth:Oceania:Tonga
 \.
 
 
